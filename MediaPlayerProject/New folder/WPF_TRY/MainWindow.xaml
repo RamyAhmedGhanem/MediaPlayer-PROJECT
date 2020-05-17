@@ -1,0 +1,49 @@
+﻿<Window x:Class="WPF_TRY.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_TRY"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" ButtonBase.Click="Window_Click">
+    <Window.Resources>
+        <FontFamily x:Key="CustomFont">Calibri</FontFamily>
+    </Window.Resources>
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="364,197,0,0" TextWrapping="Wrap" Text="Hello World" VerticalAlignment="Top"/>
+        <StackPanel>
+
+            <Button x:Name = "button" Height = "30" Width = "70" Content = "OK" Margin = "362,20,361.6,20" />
+
+            <ListBox x:Name = "listBox" Height = "100" Width = "100" Margin = "20">
+                <ListBoxItem Content = "Item 1" />
+                <ListBoxItem Content = "Item 2" />
+                <ListBoxItem Content = "Item 3" />
+            </ListBox>
+
+        </StackPanel>
+        <Button  Height = "40" Width = "175" Margin = "10" Content = "Dependency Property">
+            <Button.Style>
+                <Style TargetType = "{x:Type Button}">
+                    <Style.Triggers>
+
+                        <Trigger Property = "IsMouseOver" Value = "True">
+                            <Setter Property = "Foreground" Value = "Red" />
+                        </Trigger>
+
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <local:UserControl1 SetText="yamen" Margin="489,20,-0.4,18" />
+        <local:CustomControl1 Margin="45,235,543.6,106"/>
+
+
+
+        <TextBlock Text="{Binding Source={StaticResource CustomFont},Path=Source}" Margin="309,287,174.6,34">
+        </TextBlock>
+        <Button x:Name="ChangeFont" Content="change font"  Click="ChangeFont_Click" Margin="309,319,309.6,79"/>
+
+        <!--<TextBlock Text="{Binding Source={StaticResource myfont},Path=Source}" Margin="309,287,174.6,34"></TextBlock>-->
+    </Grid>
+</Window>

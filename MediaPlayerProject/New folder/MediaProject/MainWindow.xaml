@@ -1,0 +1,19 @@
+﻿<Window x:Class="MediaProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MediaProject"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="486.523" Width="956.754">
+    
+    <Grid>
+        <local:MyMediaElement  x:Name="Media" Position="00:02:21" LoadedBehavior="Manual" Source="F:\Anime\New folder (2)\fairy tail fights.mp4" HorizontalAlignment="Left" Height="422" VerticalAlignment="Top" Width="742"></local:MyMediaElement>
+        <!--<MediaElement x:Name="Media" Position="00:02:21" LoadedBehavior="Manual" Source="F:\Anime\New folder (2)\fairy tail fights.mp4" HorizontalAlignment="Left" Height="422" VerticalAlignment="Top" Width="742"/>-->
+        <Button x:Name="PlayOrPause" Content="Play" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="63,427,0,0" Click="PlayOrPause_Click"/>
+        <Button x:Name="MutOrUnmute" Content="Mute" HorizontalAlignment="Left" VerticalAlignment="Top" Width="32" Margin="190,427,0,0" Click="MutOrUnmute_Click"/>
+        <ProgressBar HorizontalAlignment="Left" Height="10" Margin="760,214,0,0" VerticalAlignment="Top" Width="100" ValueChanged="ProgressBar_ValueChanged"/>
+        <TextBlock Text="{Binding ElementName=Media,Path=Position,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="783,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
